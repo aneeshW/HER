@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date?</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@1,300&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bellota Text', sans-serif;
+        }
+
+        body, html{
+            width: 100%;
+            height: 100vh;
+            background-image: url("https://images.unsplash.com/photo-1514477917009-389c76a86b68?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGluayUyMHNreXxlbnwwfHwwfHx8MA%3D%3D");
+            background-size: cover;
+        }
+
+        .container, .confirmation{
+            width: 400px;
+            height: 500px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+        }
+
+        .confirmation{
+            display: none;
+        }
+
+        h1{
+            font-size: 48px;
+            font-weight: 700;
+            text-shadow: 0px 3px 6px rgb(147, 77, 77);
+            margin-bottom: 20px;
+        }
+
+        .gif, .fix-gif{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gifimg{
+            width: 384px;
+            height: 254px;
+            border-radius: 10px;
+            background-image: url("https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUybWdnank4dHoxeGd5MDZkeDZranljNnJ5c2xrcDhjNmFmcnUybHE4byZlcD12MV9naWZzX3NlYXJjaCZjdD1n/TkBoNth0Ps3Vm/source.gif");
+            background-size: cover;
+        }
+
+        .fix-gifimg{
+            width: 384px;
+            height: 216px;
+            border-radius: 10px;
+            background-image: url("https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyYWoyZ2NsaXU3MWZtaTBzeHpndnJieHRod2Q2N28wamU0MzhyODJ1eSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/fIrbAgjX4Gjqo/200.gif");
+            background-size: cover;
+        }
+
+        .answer-box{
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .answer{
+            width: 120px;
+            height: 50px;
+            font-size: 26px;
+            border-radius: 10px;
+            background: none;
+            backdrop-filter: blur(5px);
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        .answer:hover{
+            box-shadow: inset 0px 3px 6px rgba(0,0,0,0.4);
+        }
+
+        #letter-btn{
+            margin-top: 30px;
+            width: 280px;
+            height: 50px;
+            font-size: 26px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FIRST SCREEN -->
+    <div class="container">
+        <h1>Will you be my girlfriend?</h1>
+
+        <div class="gif">
+            <div class="gifimg"></div>
+        </div>
+
+        <div class="answer-box">
+            <button class="answer" id="yes">Yes!!!</button>
+            <button class="answer" id="no">No</button>
+        </div>
+    </div>
+
+    <!-- CONFIRMATION SCREEN -->
+    <div class="confirmation">
+        <h1>Yayyyyyyyy!!! Finally</h1>
+
+        <div class="fix-gif">
+            <div class="fix-gifimg"></div>
+        </div>
+
+        <button class="answer" id="letter-btn">Read something</button>
+    </div>
+
+    <script>
+        const yes = document.getElementById("yes");
+        const no = document.getElementById("no");
+        const container = document.querySelector(".container");
+        const confirmation = document.querySelector(".confirmation");
+
+        yes.addEventListener("click", () => {
+            container.style.display = "none";
+            confirmation.style.display = "block";
+        });
+
+        no.addEventListener("click", () => {
+            no.style.position = "absolute";
+            no.style.left = Math.random() * 250 + "px";
+            no.style.top = Math.random() * 250 + "px";
+        });
+
+        document.getElementById("letter-btn").addEventListener("click", () => {
+            window.location.href = "letter.html";
+        });
+    </script>
+
+</body>
+</html>
